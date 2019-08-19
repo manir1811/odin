@@ -17,7 +17,7 @@ const AccountSchema = new Schema({
     required: true
   },
   balance: {
-    type: String,
+    type: Number,
     default: 0
   },
   date: {
