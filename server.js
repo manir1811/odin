@@ -6,6 +6,7 @@ const passport = require("passport");
 require("dotenv").config();
 
 const users = require("./routes/api/users");
+const finance = require("./routes/api/finance/finance");
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.get("/", (req, res) => {
 
 // Use Routes
 app.use("/api/users", users);
+app.use("/api/finance", finance);
 
 const port = process.env.PORT || 5000;
 
