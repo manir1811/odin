@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const timestamps = require("mongoose-timestamp");
 
 const Schema = mongoose.Schema;
 
@@ -26,4 +27,5 @@ const AccountSchema = new Schema({
   }
 });
 
+AccountSchema.plugin(timestamps);
 module.exports = Account = mongoose.model("accounts", AccountSchema);

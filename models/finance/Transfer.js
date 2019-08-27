@@ -4,42 +4,36 @@ const timestamps = require("mongoose-timestamp");
 const Schema = mongoose.Schema;
 
 // Create Schema
-const TransactionSchema = new Schema({
-  desc: {
+const TransferSchema = new Schema({
+  from: {
     type: String,
     required: true
   },
-  category: {
+  to: {
     type: String,
     required: true
   },
-  type: {
+  fromCurrency: {
     type: String,
-    required: true
+    required: false
   },
-  amount: {
+  ToCurrency: {
+    type: String,
+    required: false
+  },
+  fromAmount: {
     type: Number,
     required: true
   },
-  account: {
-    type: String,
+  toAmount: {
+    type: Number,
     required: true
-  },
-  currency: {
-    type: String
   },
   date: {
     type: Date,
     default: Date.now
-  },
-  excludefromreport: {
-    type: Boolean,
-    default: false
   }
 });
 
-TransactionSchema.plugin(timestamps);
-module.exports = Transaction = mongoose.model(
-  "transactions",
-  TransactionSchema
-);
+TransferSchema.plugin(timestamps);
+module.exports = Transfer = mongoose.model("transfers", TransferSchema);
